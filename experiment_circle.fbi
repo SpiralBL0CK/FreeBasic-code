@@ -1,0 +1,20 @@
+#include "fbgfx.bi" 
+Using FB
+
+Dim Shared As Single circlex,circley,circlespeed
+
+Screen 13,8,2,0
+
+circlex = 150
+circley = 90
+circlespeed = 1 
+
+
+Do
+Circle (circlex,circley),10,15
+If MultiKey(SC_RIGHT) Then circlex = circlex + circlespeed
+If MultiKey(SC_LEFT) Then circlex = circlex - circlespeed
+If MultiKey(SC_DOWN) Then circlex = circley + circlespeed
+If MultiKey(SC_UP) Then circley = circley - circlespeed
+
+Loop Until MultiKey(SC_Q) Or MultiKey(SC_ESCAPE)
